@@ -31,17 +31,20 @@
   </el-aside>
 <!-- 头部和中间 -->
   <el-container>
-    <el-header>头部</el-header>
-    <el-main>中间</el-main>
+   <layout-header></layout-header>
+
   </el-container>
 </el-container>
   </div>
 </template>
 
 <script>
-
+import layoutheader from '../../components/layout-header.vue'
 export default {
 
+  components: {
+    'layout-header': layoutheader
+  }
 }
 </script>
 <style lang="less" scope>
