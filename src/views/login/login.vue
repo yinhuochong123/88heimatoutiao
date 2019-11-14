@@ -77,8 +77,15 @@ export default {
             method: 'post'
           }).then(res => {
             // console.log(res)  获得token令牌
-            // 存入本地
+            // 存入本地，放入前端的缓存中
             window.localStorage.setItem('user-token', res.data.data.token)
+            // 登入成功，跳转到主页，编程式导航
+            this.$router.push('/home')
+          }).catch(() => {
+            this.$message({
+              message: '登入失败',
+              type: 'warning'
+            })
           })
         }
       })
