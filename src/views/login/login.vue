@@ -65,6 +65,7 @@ export default {
     }
   },
   methods: {
+    //   手动校验
     onlogin () {
       // validate  是一个方法 => 方法中传入的一个函数 两个校验参数  是否校验成功/未校验成功的字段
       this.$refs.loginobj.validate(function (isok) {
