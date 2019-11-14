@@ -83,7 +83,7 @@ export default {
             this.$router.push('/home')
           }).catch(() => {
             this.$message({
-              message: '登入失败',
+              message: '登入失败，后端错误',
               type: 'warning'
             })
           })
