@@ -76,7 +76,9 @@ export default {
             data: this.loginForm,
             method: 'post'
           }).then(res => {
-            console.log(res)
+            // console.log(res)  获得token令牌
+            // 存入本地
+            window.localStorage.setItem('user-token', res.data.data.token)
           })
         }
       })
