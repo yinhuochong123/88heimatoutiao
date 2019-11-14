@@ -68,9 +68,16 @@ export default {
     //   手动校验
     onlogin () {
       // validate  是一个方法 => 方法中传入的一个函数 两个校验参数  是否校验成功/未校验成功的字段
-      this.$refs.loginobj.validate(function (isok) {
+      this.$refs.loginobj.validate(isok => {
         if (isok) {
-          console.log('校验成功')
+        //   如果是正确的则继续下一步，调用接口
+          this.$axios({
+            url: '/authorizations',
+            data: this.loginForm,
+            method: 'post'
+          }).then(res => {
+            console.log(res)
+          })
         }
       })
     }
