@@ -80,7 +80,7 @@ export default {
             // 存入本地，放入前端的缓存中
             window.localStorage.setItem('user-token', res.data.data.token)
             // 登入成功，跳转到主页，编程式导航
-            this.$router.push('/home')
+            this.$router.push('/layout')
           }).catch(() => {
             this.$message({
               message: '登入失败，后端错误',

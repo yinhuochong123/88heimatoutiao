@@ -16,7 +16,8 @@
              <el-dropdown-menu slot="dropdown">
                <el-dropdown-item>账户信息</el-dropdown-item>
                <el-dropdown-item>git地址</el-dropdown-item>
-               <el-dropdown-item>退出</el-dropdown-item>
+               <!-- 组件注册事件要加一个.native -->
+               <el-dropdown-item @click.native='outlogin'>退出</el-dropdown-item>
              </el-dropdown-menu>
             </el-dropdown>
         </el-col>
@@ -26,10 +27,32 @@
 
 <script>
 export default {
-
+  methods: {
+    outlogin () {
+      this.$confirm('确认退出吗?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        // 删除token
+        window.localStorage.removeItem('user-token')
+        // 跳转到登入页
+        this.$router.push('/login')
+        this.$message({
+          type: 'success',
+          message: '退出成功!'
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消退出'
+        })
+      })
+    }
+  }
 }
 </script>
 
 <style>
-div {vertical-align: }
+
 </style>
